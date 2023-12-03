@@ -11,10 +11,15 @@ I really liked the official Quatt app and i like Home Assistant. So i made a fir
 I have tried to make it as easy as possible to add this to your home assistant configuration.
 
 Step 1: Make sure you have add the Marco Boers Quatt Integration (link above). Without this configuration, you did not have the sensors.
+
 Step 2: Download all the images from the folder quatt from this repository and upload them in your Home Assistant configuration in:
+
 Confg\www\images
+
 Step 3: add the configuration as shown in configuration.yaml inside your own configuration.yaml file. Make sure you add them in the right section. If you have a Rest: or a -Platform: template section, place the configuration within theme.
+
 Step 4: Edit your dashboard, create a new page if you want to and Add a Card, choose the Picture elements card.
+
 Step 5: Copy the code from the Picture-Entity.yaml file into your picture-element, if every previous steps are correct you would see the example on the right sight of the screen, click save.
 
 You are done and have a custom quatt dashboard like above screenshot.
