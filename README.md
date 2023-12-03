@@ -1,5 +1,8 @@
 # Quatt-dashboard
-![Custom Quatt Dashboard where you can read the several (clickable) sensors with the actuel realtime data. Also the image changes on behalve of the active working mode.](https://github.com/Clubeddie/Quatt-dashboard/blob/main/example.png)
+!(https://github.com/Clubeddie/Quatt-dashboard/blob/main/example.png)
+
+Custom Quatt Dashboard where you can read the several (clickable) sensors with the actuel realtime data. Also the image changes on behalve of the active working mode.
+
 Since the 28th of November i own a [Quatt Heatpump](https://referral.quatt.io/l/EDGARVEEN29/) (get a €100 discount through this link). As a Home Assistant user i could not wait to start playing with it. 
 Marco Boers has created a beatifull Quatt integration (https://github.com/marcoboers/home-assistant-quatt) so that all available sensors are available inside your Home Assistant. So be sure to take a look into that addon. Without that addon, this dashboard won't work.
 
