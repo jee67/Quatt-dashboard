@@ -1,0 +1,164 @@
+type: picture-elements
+# Text mode on top off screen, for correct naming check first section in configuration.yaml
+elements:
+  - type: state-label
+    entity: sensor.quatt_qc_controlmode
+    style:
+      top: 5%
+      left: 50%
+      color: white
+# BETA mode. Different images that only shows within a certain mode on top off the background image. This is work in progress. Not yet tested all modes
+  - type: image
+    entity: sensor.heatpump_qc_supervisorycontrolmode
+    state_image:
+      '0': /local/images/quatt/controlmode-0.png
+      '1': /local/images/quatt/controlmode-1.png
+      '2': /local/images/quatt/controlmode-2.png
+      '3': /local/images/quatt/controlmode-3.png
+      '98': /local/images/quatt/controlmode-98.png
+      '99': /local/images/quatt/controlmode-99.png
+    style:
+      top: 50%
+      left: 50%
+      width: 100%
+# Weather icon integration on the top right, can work with other weather integration apps, this one is configured for openweathermap. If you make use of another app, check which
+# sensor is gaving the text conditions for weather.
+  - type: image
+    entity: sensor.openweathermap_condition
+    state_image:
+      clear-night: /local/images/quatt/weather-icons/weather-night.svg
+      cloudy: /local/images/quatt/weather-icons/weather-cloudy.svg
+      exceptional: /local/images/quatt/weather-icons/alert-outline.svg
+      fog: /local/images/quatt/weather-icons/weather-fog.svg
+      hail: /local/images/quatt/weather-icons/weather-hail.svg
+      lightning: /local/images/quatt/weather-icons/weather-lightning.svg
+      lightning-rainy: /local/images/quatt/weather-icons/weather-lightning-rainy.svg
+      partlycloudy: /local/images/quatt/weather-icons/weather-partly-cloudy.svg
+      pouring: /local/images/quatt/weather-icons/weather-pouring.svg
+      rainy: /local/images/quatt/weather-icons/weather-rainy.svg
+      snowy: /local/images/quatt/weather-icons/weather-snowy.svg
+      snowy-rainy: /local/images/quatt/weather-icons/weather-snowy-rainy.svg
+      sunny: /local/images/quatt/weather-icons/white-balance-sunny.svg
+      windy: /local/images/quatt/weather-icons/weather-windy.svg
+      windy-variant: /local/images/quatt/weather-icons/
+    style:
+      top: 10%
+      left: 85%
+      width: 15%
+# This one is in beta. Based on the working mode of the Quatt it shows a wind icon, if working or a defrost icon when defrosting. Not yet tested.
+# You need te configure some addons 
+  - type: image
+    entity: sensor.quatt_working
+    state_image:
+      'True': /local/images/quatt/working.svg
+    style:
+      top: 76%
+      left: 78%
+      width: 10%
+  - type: image
+    entity: sensor.quatt_defrost
+    state_image:
+      'True': /local/images/quatt/defrost.svg
+      'False': /local/images/quatt/blank-icon.png
+    style:
+      top: 79%
+      left: 78%
+      width: 10%
+# Shows an icon in what mode the Quatt is working. Silent on or Silent off. If you have have disabled silent mode in the original Quatt app you can uncomment this section.
+  - type: image
+    entity: binary_sensor.heatpump_hp1_silentmode
+    state_image:
+      'off': /local/images/quatt/silent-off.svg
+      'on': /local/images/quatt/silent-on.svg
+    style:
+      top: 72%
+      left: 94%
+      width: 7%
+# Different tempature sensors in the image.
+  - type: state-label
+    entity: sensor.heatpump_hp1_temperatureoutside
+    style:
+      top: 55%
+      left: 93%
+      color: white
+  - type: state-label
+    entity: sensor.heatpump_thermostat_room_setpoint
+    style:
+      top: 54%
+      left: 47%
+      color: black
+  - type: icon
+    icon: mdi:arrow-down-right-bold
+    style:
+      top: 55%
+      left: 55%
+      color: black
+  - type: state-label
+    entity: sensor.heatpump_thermostat_room_temperature
+    style:
+      top: 60%
+      left: 56%
+      color: black
+  - type: state-label
+    entity: sensor.heatpump_hp1_temperaturewaterin
+    style:
+      top: 70%
+      left: 65%
+      color: white
+# Bottom bar with several sensors and icons
+  - type: state-label
+    entity: sensor.heatpump_hp1_temperaturewaterout
+    style:
+      top: 76%
+      left: 65%
+      color: black
+  - type: state-label
+    entity: sensor.heatpump_flowmeter_flowrate
+    style:
+      top: 95%
+      left: 19%
+      color: white
+  - type: icon
+    icon: mdi:speedometer
+    style:
+      top: 95%
+      left: 10%
+      color: lightblue
+  - type: state-label
+    entity: sensor.heatpump_hp1_powerinput
+    style:
+      top: 95%
+      left: 40%
+      color: white
+  - type: state-label
+    entity: sensor.heatpump_hp1_power
+    style:
+      top: 95%
+      left: 62%
+      color: white
+  - type: icon
+    icon: mdi:lightning-bolt
+    style:
+      top: 95%
+      left: 32%
+      color: yellow
+  - type: icon
+    icon: mdi:heat-wave
+    style:
+      top: 95%
+      left: 53%
+      color: orange
+  - type: icon
+    icon: mdi:copyright
+    style:
+      top: 95%
+      left: 79%
+      color: lightgreen
+  - type: state-label
+    entity: sensor.heatpump_hp1_quatt_cop
+    style:
+      top: 95%
+      left: 89%
+      color: white
+# Default background with the building.
+image: /local/images/quatt/quatt-background.png

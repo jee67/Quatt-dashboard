@@ -1,0 +1,36 @@
+##### Quatt data #####
+# Add below config in the right section of your configuration.yaml
+
+# Don't forget to add your Quatt IP Adress below
+
+# This section is based on the configuration customization from @arthurrump -> https://community.home-assistant.io/t/quatt-heat-pump-integration/553378/41 All credits for him
+# I only translated this to dutch
+rest:
+  - resource: http://[Quatt IP Address]:8080/beta/feed/data.json
+    scan_interval: 10
+    sensor:
+      - name: "Quatt qc controlMode"
+        unique_id: quatt.qc.supervisoryControlMode
+        value_template: >-
+          {% set mapping = {
+            0: "Standby",
+            1: "Standby - Verwarmen",
+            2: "Verwarmen - Warmtepomp",
+            3: "Verwarmen - Warmtepomp + CV",
+            4: "Verwarmen - CV",
+            96: "Anti-freeze protectie - CV aan",
+            97: "Anti-freeze protectie - CV voorpomp",
+            98: "Anti-freeze protectie - Water circulatie",
+            99: "Fout - Circulation pomp aan"
+          } %}
+          {% set state = value_json.qc.supervisoryControlMode %}
+          {{ mapping[state] if state in mapping else ("Commissioning" if state >= 100 else "Unknown") }}
+
+
+# Sensors for check with mode the Quatt is running so it shows the correct icon on top of the Quatt in the image
+  - platform: template
+    sensors:
+      quatt_defrost:
+        value_template: "{{ states('sensor.heatpump_hp1_power') | float(0) < 0 }}"
+      quatt_working:
+        value_template: "{{ states('sensor.heatpump_hp1_power') | float(0) > 100 }}"
