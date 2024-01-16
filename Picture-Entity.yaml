@@ -76,6 +76,12 @@ elements:
       width: 7%
 # Different tempature sensors in the image.
   - type: state-label
+    entity: sensor.heatpump_flowmeter_temperature
+    style:
+      top: 55%
+      left: 23%
+      color: white
+  - type: state-label
     entity: sensor.heatpump_hp1_temperatureoutside
     style:
       top: 55%
