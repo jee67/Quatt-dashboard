@@ -1,5 +1,5 @@
 # Quatt-dashboard
-![Example screenshot](https://github.com/Clubeddie/Quatt-dashboard/blob/main/example.png)
+![Example screenshot](https://github.com/jee67/Quatt-dashboard/blob/main/example.png)
 
 Custom Quatt Dashboard where you can read the several (clickable) sensors with the actual realtime data. Also the image changes on behalve of the active working mode.
 
